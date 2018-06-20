@@ -5,9 +5,7 @@
 <div class="col-md-4">
   <ul>
     <% @pizza.recipe.recipeingredients.each do |ingredient| %>
-      <li><%= ingredient.ingredient.name %></li>
+      <li><%= ingredient %></li>
     <% end %>
   </ul>
-
-<h2>Base price: <%= number_to_currency @pizza.recipe.price %></h2>
 </div>
