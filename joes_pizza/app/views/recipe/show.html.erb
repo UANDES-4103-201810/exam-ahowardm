@@ -1,0 +1,13 @@
+<h1><%= @recipe.name %></h1>
+
+<h2>Ingredients</h2>
+
+<div class="col-md-4">
+  <ul>
+    <% @recipe.recipeingredients.each do |ingredient| %>
+      <li><%= ingredient.ingredient.name %></li>
+    <% end %>
+  </ul>
+
+<h2>Base price: <%= number_to_currency @recipe.price %></h2>
+</div>

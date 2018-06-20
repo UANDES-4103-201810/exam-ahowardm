@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_20_205327) do
+ActiveRecord::Schema.define(version: 2018_06_20_221658) do
 
   create_table "crusts", force: :cascade do |t|
     t.string "kind"
@@ -33,12 +33,21 @@ ActiveRecord::Schema.define(version: 2018_06_20_205327) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "pizzas", force: :cascade do |t|
     t.integer "crust_id"
     t.integer "recipe_id"
+    t.integer "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["crust_id"], name: "index_pizzas_on_crust_id"
+    t.index ["order_id"], name: "index_pizzas_on_order_id"
     t.index ["recipe_id"], name: "index_pizzas_on_recipe_id"
   end
 

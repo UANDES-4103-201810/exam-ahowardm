@@ -1,4 +1,4 @@
 class Recipeingredient < ApplicationRecord
-  belongs_to :pizza
+  has_one :pizza
   belongs_to :ingredient
 end
