@@ -1,5 +1,10 @@
-<h1>We have <%= pluralize(@pizzas.count, 'pizza') %></h1>
+<h1>Menu</h1>
 
-<div class="row">
+<% @pizzas.each do |pizza| %>
+  <div class="col-md-3 pizza-item">
+    <h2><%= link_to pizza.recipe.name , pizza %></h2>
+    <p><%= number_to_currency pizza.recipe.price %></p>
+  </div>
+<% end %>
 
-</div>
+

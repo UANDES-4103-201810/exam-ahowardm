@@ -1,3 +1,5 @@
 class Recipe < ApplicationRecord
-  belongs_to :recipeingredient
+  has_many :pizzas
+  has_many :recipeingredients
+  has_many :ingredients, through: :recipeingredients
 end
