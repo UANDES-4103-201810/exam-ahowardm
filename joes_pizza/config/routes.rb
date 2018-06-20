@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'user/show'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'recipe#index'
@@ -6,4 +7,9 @@ Rails.application.routes.draw do
   resources :users
   resources :pizza
   resources :recipe
+
+  resources :order
+  resources :users do
+    resources :order
+  end
 end
